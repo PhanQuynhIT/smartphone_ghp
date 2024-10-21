@@ -5,10 +5,8 @@ import io.swagger.v3.oas.models.info.Info;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-
 @Configuration
 public class SwaggerConfig {
-
 
     @Bean
     public OpenAPI customOpenAPI() {
@@ -19,3 +17,4 @@ public class SwaggerConfig {
                         .description("API documentation for managing users"));
     }
 }
+//http://localhost:8080/swagger-ui.html//

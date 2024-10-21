@@ -29,6 +29,7 @@ public class ProductsController {
 
     // Trả về một User cụ thể theo ID
     @GetMapping("/products/{item_id}")
+    @ResponseBody
     public ResponseEntity<Products> getProductsById(@PathVariable("item_id") int productsItem_id) {
         for (Products products : productsService.findAll()) {
             if (products.getItem_id() == productsItem_id) {
@@ -48,6 +49,7 @@ public class ProductsController {
 
     // Tạo một User mới
     @PostMapping("/products")
+    @ResponseBody
     public ResponseEntity<Products> createProducts(@RequestBody Products products) {
         productsService.save(products);
         return ResponseEntity.status(201).body(products);
@@ -55,6 +57,7 @@ public class ProductsController {
 
     // Cập nhật thông tin một User cụ thể theo ID
     @PutMapping("/products/{item_id}")
+    @ResponseBody
     public ResponseEntity<Products> updateProducts(@PathVariable("item_id") Long productsItem_id, @RequestBody Products updateProducts) {
         Products products = productsService.findById(productsItem_id);
         if (products != null) {
